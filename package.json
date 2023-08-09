@@ -1,0 +1,49 @@
+{
+	"name": "snowstorm",
+	"version": "2.6.0",
+	"description": "Minecraft Bedrock Edition particle editor",
+	"author": {
+		"name": "JannisX11",
+		"email": "info@blockbench.net"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/JannisX11/snowstorm"
+	},
+	"license": "GPL-3.0-or-later",
+	"scripts": {
+		"dev": "npm run development && npm run copy-extension",
+		"development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+		"watch": "npm run development -- --watch",
+		"hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js && npm run copy-extension",
+		"prod": "npm run production",
+		"production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js && npm run copy-extension",
+		"copy-extension": "copy .\\dist\\app.js .\\vscode_extension\\snowstorm\\app.js",
+		"extension": "npm run dev && npm run copy-extension",
+		"build-extension": "cd ./vscode_extension && vsce package"
+	},
+	"devDependencies": {
+		"cross-env": "^7.0.3",
+		"laravel-mix": "^5.0.9",
+		"postcss": "^8.4.12",
+		"sass": "^1.30.0",
+		"sass-loader": "^8.0.2",
+		"url-loader": "^4.1.1",
+		"vue-template-compiler": "^2.6.12",
+		"webpack": "^4.46.0",
+		"webpack-bundle-size-analyzer": "^3.1.0",
+		"webpack-cli": "^3.3.12"
+	},
+	"dependencies": {
+		"bootstrap": "^4.5.3",
+		"fflate": "^0.7.3",
+		"molangjs": "^1.6.1",
+		"prismjs": "^1.28.0",
+		"root": "github:JannisX11/vue-prism-editor",
+		"three": "^0.129.0",
+		"vue": "^2.6.12",
+		"vue-color": "^2.8.0",
+		"vue-prism-component": "^1.2.0",
+		"wintersky": "^1.2.1"
+	}
+}
